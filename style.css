@@ -1,0 +1,99 @@
+*, *::after, *::before {
+    --color: hsl(200, 50%, 50%);
+    font-family: 'Lato', sans-serif;
+}
+
+.card-grid {
+    /* switch to grid */
+    display: grid;
+    /* set grid to columns with auto-fit to resize the cards to max 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* gap between cards */
+    gap: 1rem;
+    /* vertically fits to content */
+    align-items: flex-start;
+}
+
+.card {
+    --padding: 1rem;
+    background: white;
+    border: 1px solid #777;
+    border-radius: 0.5rem;
+    /* img overlaps the card border radius so overflow hides that */
+    overflow: hidden;
+}
+.card.card-shadow {
+    border: none;
+    box-shadow: 0 3px 5px 0 hsl(200, 0%, 50%, .4);
+}
+
+.card-image {
+    overflow: hidden;
+    /* border-radius: .5rem .5rem 0 0; */
+}
+
+.card-image > img {
+    /* set img to block to change width and height */
+    display: block;
+    /* fit the width of the container */
+    width: 100%;
+    /* set max height so that it won't expand with the size of the window much */
+    max-height: 200px;
+    /* aspect set the width-height ratio with content fit */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    transition: 500ms transform ease-in-out;
+}
+
+.card:hover > .card-image > img {
+    transform: scale(1.1);
+}
+
+.card-header {
+    padding: var(--padding);
+    padding-bottom: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-body {
+    padding: 0 var(--padding);
+    /* padding-top: 0;
+    padding-bottom: 0; */
+    font-size: 0.9rem;
+}
+
+.card-footer {
+    padding: var(--padding);
+    padding-top: 0;
+    margin-top: 1rem;
+}
+
+.btn {
+    background: var(--color);
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    padding: .75em 1em;
+    border-radius: .25em;
+    cursor: pointer;
+}
+
+.btn:hover, .btn:focus {
+    background: hsl(200, 50%, 65%);
+}
+
+.btn.btn-outline {
+    background: none;
+    border: 1px solid var(--color);
+    color: var(--color);
+}
+
+.btn.btn-outline:hover, .btn.btn-outline:focus {
+    background: hsl(200, 50%, 85%);
+}
+
+.btn + .btn {
+    margin-left: .5rem;
+}
